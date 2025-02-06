@@ -14,6 +14,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            flex-direction: column;
         }
         .container {
             background: white;
@@ -40,9 +41,22 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin-top: 10px;
         }
         button:hover {
             background: #00c9ff;
+        }
+        .home-button {
+            background: #ff5757;
+            text-decoration: none;
+            display: inline-block;
+            padding: 10px 15px;
+            border-radius: 5px;
+            color: white;
+            margin-top: 15px;
+        }
+        .home-button:hover {
+            background: #ff3838;
         }
     </style>
 </head>
@@ -58,6 +72,9 @@
         </form>
         <p id="status"></p>
     </div>
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-button">Home</a>
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
