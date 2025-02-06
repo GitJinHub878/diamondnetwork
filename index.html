@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage - Diamond Network</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('dia.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header-box {
+            background-color: rgba(34, 34, 34, 0.9);
+            padding: 20px;
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.5);
+            text-align: center;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 90%;
+            position: relative;
+        }
+
+        .header-box h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        /* Button Section */
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .buttons-container button {
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: black;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .store-btn i {
+            margin-right: 5px;
+        }
+
+        /* Diamond.ms-cloud.me Button */
+        .copy-btn {
+            background-color: aqua;
+            color: black;
+            font-weight: bold;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+
+        .copy-btn.copied {
+            background-color: #4CAF50; /* Green color for the copied state */
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            flex: 1;
+            text-align: left;
+            max-width: 50%;
+            padding-right: 20px;
+        }
+
+        .hero .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #ffcc00;
+            color: #111;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .hero img {
+            max-width: 500px; /* Increased width */
+            height: auto;
+            aspect-ratio: 16/8; /* Makes it a bit longer */
+            border-radius: 8px;
+            margin-bottom: -90px;
+        }
+
+        /* Battle Pass Section */
+        .battle-pass {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            width: 90%;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .battle-pass h2 {
+            color: #ffcc00;
+            font-size: 22px;
+        }
+
+        .battle-pass p {
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        .read-more {
+            font-size: 14px;
+            color: #ff6666; /* Reddish-white color */
+            margin-top: 10px;
+        }
+
+        .line {
+            width: 100%;
+            height: 1px;
+            background-color: #ccc;
+            margin: 10px 0;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            padding: 8px 15px;
+            background-color: #ffcc00;
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+        }
+
+        /* Popup Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #222;
+            padding: 20px;
+            width: 350px;
+            box-shadow: 0px 0px 10px rgba(255,255,255,0.3);
+            border-radius: 8px;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .modal h2 {
+            color: aqua;
+            font-size: 24px;
+        }
+
+        .modal h3 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffcc00;
+        }
+
+        .modal p {
+            font-size: 14px;
+        }
+
+        .ok-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: aqua;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Box -->
+    <div class="header-box">
+        <h1>Diamond Network</h1>
+
+        <div class="buttons-container">
+            <button onclick="window.location.href='index.html';">Home</button>
+            <button onclick="window.location.href='https://discord.gg/cAB6U2kdUu';">Discord</button>
+            <button onclick="window.location.href='rules.html';">Rules</button>
+            <button onclick="window.location.href='staffteam.html';">Staff</button>
+            <button onclick="window.location.href='jobs.html';">Jobs</button>
+            <button class="store-btn" onclick="window.location.href='https://diamondsmp.craftingstore.net';"><i class="fas fa-shopping-cart"></i> Store</button>
+        </div>
+
+        <button class="copy-btn" id="copyBtn" onclick="copyToClipboard()">diamond.ms-cloud.me</button>
+    </div> 
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <button class="btn" onclick="openModal()">Join Now</button>
+
+            <!-- Battle Pass Section -->
+            <div class="battle-pass" id="battlePass">
+                <h2 id="battlePassTitle">The New Website!</h2>
+                <p id="battlePassText">We,ve officially released our new website.
+                    <br>you can hcek out or shop for affordable stuff!
+                </p>
+                <p class="read-more" id="battlePassDate">Released: Feb 10, 2025</p>
+
+                <div class="line"></div>
+
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="changeMessage(-1)">&lt;</button>
+                    <button class="nav-btn" onclick="changeMessage(1)">&gt;</button>
+                </div>
+            </div>
+        </div>
+
+        <img src="dia.jpg" alt="PvP Experience Image">
+    </section>
+
+    <!-- Modal Popup -->
+    <div class="modal" id="joinModal">
+        <h2>Diamond Network Instructions</h2>
+        <h3>Connect to the server</h3>
+        <p>Play unique games like EarthSMP and Minigames!</p>
+
+        <p>1. In Minecraft, click Multiplayer and then Add Server.</p>
+        <p>2. Enter "diamond.ms-cloud.me" into the Server Address box.</p>
+        <p>3. If you are on bedrock make sure you use this ip "19132".</p>
+
+        <a href="#" class="ok-btn" onclick="closeModal()">OK</a>
+    </div>
+
+    <script>
+        let messages = [
+            { title: "The New website", text: "Check it out and let us know your review", date: "Released: Feb 5, 2025" },
+            { title: "Exciting Updates Incoming!", text: "New mini-games, fresh events, and better rewards!", date: "Released: Feb 5, 2025" },
+            { title: "Ranked PvP Arrives!", text: "Compete, climb the leaderboard, and earn rewards!", date: "Released: Feb 5, 2025" }
+        ];
+        let index = 0;
+
+        function changeMessage(dir) {
+            let bp = document.getElementById("battlePass");
+            bp.style.opacity = "0";
+            bp.style.transform = `translateX(${dir * -20}px)`;
+            setTimeout(() => {
+                index = (index + dir + messages.length) % messages.length;
+                document.getElementById("battlePassTitle").textContent = messages[index].title;
+                document.getElementById("battlePassText").textContent = messages[index].text;
+                document.getElementById("battlePassDate").textContent = messages[index].date;
+                bp.style.opacity = "1";
+                bp.style.transform = "translateX(0)";
+            }, 300);
+        }
+
+        // Open the Join Now Modal
+        function openModal() {
+            document.getElementById("joinModal").style.display = "block";
+        }
+
+        // Close the Join Now Modal
+        function closeModal() {
+            document.getElementById("joinModal").style.display = "none";
+        }
+
+        // Copy text to clipboard and change button text
+        function copyToClipboard() {
+            const textToCopy = "diamond.ms-cloud.me";
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                let copyBtn = document.getElementById("copyBtn");
+                copyBtn.textContent = "Copied!";
+                copyBtn.classList.add("copied");
+                setTimeout(() => {
+                    copyBtn.textContent = "diamond.ms-cloud.me";
+                    copyBtn.classList.remove("copied");
+                }, 2000);
+            }).catch(err => {
+                console.error('Error copying text: ', err);
+            });
+        }
+    </script>
+
+</body>
+</html>

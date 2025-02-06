@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs - Diamond Network</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+        }
+
+        .header-box {
+            background-color: rgba(34, 34, 34, 0.9);
+            padding: 20px;
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.5);
+            text-align: center;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 90%;
+            position: relative;
+        }
+
+        .header-box h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #ffcc00;
+        }
+
+        /* Jobs Section */
+        .jobs-section {
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            margin-top: 30px;
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .jobs-section h2 {
+            font-size: 28px;
+            color: #ffcc00;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .jobs-section p {
+            font-size: 18px;
+            color: #ccc;
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        .job-position {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: rgba(34, 34, 34, 0.8);
+            border-radius: 10px;
+        }
+
+        .job-position h3 {
+            font-size: 22px;
+            color: #ffcc00;
+        }
+
+        .apply-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: black;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 10px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .apply-btn:hover {
+            background-color: #e6b800;
+        }
+
+        .dropdown-content {
+            display: none;
+            background-color: #222;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .dropdown-content p {
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        .dropdown-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dropdown-content ul li {
+            margin: 5px 0;
+        }
+
+        .arrow {
+            margin-left: 10px;
+        }
+
+        .start-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .start-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: #222;
+            padding: 30px 0;
+            color: #ccc;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #ffcc00;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer .social-media {
+            margin-top: 20px;
+        }
+
+        .footer .social-media a {
+            font-size: 24px;
+            margin: 0 10px;
+        }
+
+        .footer .social-media a:hover {
+            color: #ffcc00;
+        }
+
+        .rights-notice {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #bbb;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Box -->
+    <div class="header-box">
+        <h1>Diamond Network - Jobs</h1>
+    </div>
+
+    <!-- Jobs Section -->
+    <div class="jobs-section">
+        <h2>Jobs</h2>
+        <p>We are looking for passionate individuals to join our team! If you're interested in making an impact at Diamond Network, here are the available positions:</p>
+
+        <!-- Server Moderator Position -->
+        <div class="job-position">
+            <h3>Server Moderator</h3>
+            <p>Help us manage and create a positive environment for our community.</p>
+            <button class="apply-btn" onclick="toggleDropdown('serverModerator')">Apply Now <i class="fas fa-chevron-down arrow"></i></button>
+            <div class="dropdown-content" id="serverModerator">
+                <p><strong>Responsibilities:</strong></p>
+                <ul>
+                    <li>Monitor chat and ensure it stays friendly and safe.</li>
+                    <li>Assist players with issues or questions they may have.</li>
+                    <li>Report serious offenses to higher authorities.</li>
+                </ul>
+                <p><strong>Requirements:</strong></p>
+                <ul>
+                    <li>Good communication skills.</li>
+                    <li>Previous experience in a similar role (preferred).</li>
+                    <li>Ability to work in a team environment.</li>
+                </ul>
+                <a href="https://forms.gle/yourGoogleFormLinkHere" class="start-btn" target="_blank">Start</a>
+            </div>
+        </div>
+
+        <!-- Game Developer Position -->
+        <div class="job-position">
+            <h3>Game Developer</h3>
+            <p>Help us build new and exciting features for our Minecraft server.</p>
+            <button class="apply-btn" onclick="toggleDropdown('gameDeveloper')">Apply Now <i class="fas fa-chevron-down arrow"></i></button>
+            <div class="dropdown-content" id="gameDeveloper">
+                <p><strong>Responsibilities:</strong></p>
+                <ul>
+                    <li>Develop and maintain game features.</li>
+                    <li>Work on bug fixes and server optimization.</li>
+                    <li>Collaborate with other team members to improve gameplay experience.</li>
+                </ul>
+                <p><strong>Requirements:</strong></p>
+                <ul>
+                    <li>Experience in game development or Minecraft plugin development.</li>
+                    <li>Familiarity with programming languages such as Java and Python.</li>
+                    <li>Ability to troubleshoot and problem-solve.</li>
+                </ul>
+                <a href="https://forms.gle/yourGoogleFormLinkHere" class="start-btn" target="_blank">Start</a>
+            </div>
+        </div>
+
+        <!-- Game Designer Position -->
+        <div class="job-position">
+            <h3>Game Designer</h3>
+            <p>Create immersive experiences and designs that enhance the gameplay for our community.</p>
+            <button class="apply-btn" onclick="toggleDropdown('gameDesigner')">Apply Now <i class="fas fa-chevron-down arrow"></i></button>
+            <div class="dropdown-content" id="gameDesigner">
+                <p><strong>Responsibilities:</strong></p>
+                <ul>
+                    <li>Design in-game features, mini-games, and environments.</li>
+                    <li>Collaborate with developers to bring designs to life.</li>
+                    <li>Stay updated with the latest design trends and techniques.</li>
+                </ul>
+                <p><strong>Requirements:</strong></p>
+                <ul>
+                    <li>Experience with graphic design and game design software.</li>
+                    <li>Ability to create creative and engaging in-game content.</li>
+                    <li>Attention to detail and a passion for gaming.</li>
+                </ul>
+                <a href="https://forms.gle/yourGoogleFormLinkHere" class="start-btn" target="_blank">Start</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="rules.html">Rules</a>
+        </div>
+
+        <div class="rights-notice">
+            <p>&copy; 2025 Diamond Network. All rights reserved.</p>
+        </div>
+
+        <div class="social-media">
+            <a href="https://www.youtube.com/@DiamondBooster_Playz" target="_blank" class="fab fa-youtube">Youtube</a>
+            <a href="https://discord.gg/cAB6U2kdUu" target="_blank" class="fab fa-discord">Discord</a>
+            <a href="https://www.instagram.com/YourInstagramLink" target="_blank" class="fab fa-instagram">Instagram</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown(position) {
+            var dropdown = document.getElementById(position);
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

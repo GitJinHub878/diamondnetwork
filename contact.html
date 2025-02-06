@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Diamond Network</title>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init('fz5bmxrtnFlLaktCByTNv'); // Replace with your EmailJS user ID
+        })();
+    </script>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #111;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-box {
+            background-color: rgba(34, 34, 34, 0.9);
+            width: 80%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .contact-box h2 {
+            color: #ffcc00;
+        }
+
+        .contact-box textarea {
+            width: 80%;
+            height: 150px;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #111;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            resize: none;
+        }
+
+        .contact-box button {
+            background-color: #ffcc00;
+            color: #111;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .contact-box button:hover {
+            background-color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contact Us Section -->
+    <div class="contact-box">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <textarea name="message" id="message" placeholder="Write your message here..." required></textarea>
+            <br>
+            <button type="button" onclick="sendMessage()">Post</button>
+        </form>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var message = document.getElementById("message").value;
+            
+            if (message.trim() === "") {
+                alert("Please write a message before posting.");
+                return;
+            }
+
+            var templateParams = {
+                message: message
+            };
+
+            emailjs.send('service_7hi75yy', 'template_yiubxsf', templateParams)
+                .then(function(response) {
+                    alert("Your message has been sent successfully!");
+                    document.getElementById("contact-form").reset();  // Reset the form after submission
+                }, function(error) {
+                    alert("Something went wrong, please try again later.");
+                    console.log(error);
+                });
+        }
+    </script>
+
+</body>
+</html>
