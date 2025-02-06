@@ -3,100 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Diamond Network</title>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        (function () {
-            emailjs.init('disQUYpdW0IBycFIY'); // Replace with your EmailJS user ID
-        })();
-    </script>
+    <title>Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* General Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            background-color: #111;
-            color: white;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 350px;
             text-align: center;
         }
-
-        .contact-box {
-            background-color: rgba(34, 34, 34, 0.9);
-            width: 80%;
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+        h2 {
+            margin-bottom: 15px;
         }
-
-        .contact-box h2 {
-            color: #ffcc00;
-        }
-
-        .contact-box textarea {
-            width: 80%;
-            height: 150px;
-            margin-top: 10px;
+        input, textarea {
+            width: 100%;
             padding: 10px;
-            background-color: #111;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background: #4facfe;
             color: white;
+            padding: 10px 15px;
             border: none;
             border-radius: 5px;
-            font-size: 16px;
-            resize: none;
-        }
-
-        .contact-box button {
-            background-color: #ffcc00;
-            color: #111;
-            padding: 10px 20px;
-            border-radius: 5px;
-            border: none;
             cursor: pointer;
-            font-weight: bold;
-            margin-top: 10px;
         }
-
-        .contact-box button:hover {
-            background-color: #ffcc00;
+        button:hover {
+            background: #00c9ff;
         }
     </style>
 </head>
 <body>
 
-    <!-- Contact Us Section -->
-    <div class="contact-box">
+    <div class="container">
         <h2>Contact Us</h2>
         <form id="contact-form">
-            <textarea name="message" id="message" placeholder="Write your message here..." required></textarea>
-            <br>
-            <button type="button" onclick="sendMessage()">Post</button>
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
         </form>
+        <p id="status"></p>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
-        function sendMessage() {
-            var message = document.getElementById("message").value;
-            
-            if (message.trim() === "") {
-                alert("Please write a message before posting.");
-                return;
-            }
+        (function() {
+            emailjs.init("disQUYpdW0IBycFIY"); // Your Public Key
+        })();
 
-            var templateParams = {
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+
+            let templateParams = {
+                from_name: name,
+                from_email: email,
                 message: message
             };
 
-            emailjs.send('service_7hi75yy', 'template_hzf4vbh', templateParams)
+            emailjs.send("service_7hi75yy", "template_yiubxsf", templateParams)
                 .then(function(response) {
-                    alert("Your message has been sent successfully!");
-                    document.getElementById("contact-form").reset();  // Reset the form after submission
+                    document.getElementById("status").innerText = "Message sent successfully!";
+                    document.getElementById("status").style.color = "green";
+                    document.getElementById("contact-form").reset();
                 }, function(error) {
-                    alert("Something went wrong, please try again later.");
-                    console.log(error);
+                    document.getElementById("status").innerText = "Failed to send message.";
+                    document.getElementById("status").style.color = "red";
                 });
-        }
+        });
     </script>
 
 </body>
