@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LODESTONE</title>
+    <style>
+        /* General Styles */
+        body {
+            background-color: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .logo img {
+            width: 30px;
+            margin-right: 10px;
+        }
+
+        .auth-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .login-btn {
+            background-color: #5865F2;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .login-btn:hover {
+            background-color: #4752C4;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            display: none; /* Hidden until login */
+        }
+
+        .user-profile img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .logout-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .logout-btn:hover {
+            background-color: darkred;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            margin-top: 50px;
+            padding: 20px;
+        }
+
+        .block-icon {
+            width: 80px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 16px;
+            color: #ccc;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        /* Buttons */
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 5px;
+        }
+
+        .join-event {
+            background-color: white;
+            color: black;
+        }
+
+        .host-event {
+            background-color: gold;
+            color: black;
+        }
+
+        /* Previously Used by Creators Section */
+        .creators-section {
+            margin-top: 50px;
+            padding: 20px;
+        }
+
+        .creator-box {
+            background-color: #222;
+            padding: 15px;
+            margin: 10px auto;
+            width: 80%;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            color: white;
+        }
+
+        .creator-box img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .creator-box a {
+            color: gold;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="lodestone-icon.png" alt="Lodestone Icon">
+                <span>LODESTONE</span>
+            </div>
+            <div class="auth-section">
+                <!-- Login Button -->
+                <a id="login-btn" class="login-btn" href="https://discord.com/api/oauth2/authorize?client_id=1344377959636664480&redirect_uri=YOUR_REDIRECT_URI&response_type=token&scope=identify">
+                    Login
+                </a>
+
+                <!-- User Profile (Hidden Until Login) -->
+                <div id="user-profile" class="user-profile">
+                    <img id="user-avatar" src="" alt="User Avatar">
+                    <span id="username"></span>
+                    <button id="logout-btn" class="logout-btn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="hero-section">
+            <img src="lodestone-block.png" alt="Lodestone Block" class="block-icon">
+            <h1>Bringing the event community together.</h1>
+            <p>
+                Lodestone is a platform designed to bring the Minecraft event community together. 
+                From helping creators with hosting their own events, to helping players find events to play on.
+            </p>
+            <div class="buttons">
+                <button class="join-event">Join an Event</button>
+                <button class="host-event">Host an Event</button>
+            </div>
+        </div>
+
+        <!-- Previously Used by Creators Section -->
+        <div class="creators-section">
+            <h2>Previously used by these various creators:</h2>
+
+            <div class="creator-box">
+                <img src="diamond-booster-thumbnail.jpg" alt="Diamond Booster">
+                <a href="https://www.youtube.com/channel/DiamondBooster" target="_blank">Diamond Booster</a>
+            </div>
+
+            <div class="creator-box">
+                <img src="diamond-network-thumbnail.jpg" alt="Diamond Network">
+                <a href="https://www.youtube.com/channel/DiamondNetwork" target="_blank">Diamond Network</a>
+            </div>
+
+            <div class="creator-box">
+                <img src="mando-plays-thumbnail.jpg" alt="Mando Plays Minecraft">
+                <a href="https://www.youtube.com/channel/MandoPlaysMinecraft" target="_blank">Mando Plays Minecraft</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function checkLogin() {
+            const fragment = new URLSearchParams(window.location.hash.slice(1));
+            const accessToken = fragment.get('access_token');
+
+            if (accessToken) {
+                fetch('https://discord.com/api/users/@me', {
+                    headers: { Authorization: `Bearer ${accessToken}` }
+                })
+                .then(response => response.json())
+                .then(user => {
+                    document.getElementById('login-btn').style.display = 'none';
+                    document.getElementById('user-profile').style.display = 'flex';
+                    document.getElementById('user-avatar').src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
+                    document.getElementById('username').innerText = user.username;
+                })
+                .catch(err => console.error('Failed to fetch user data', err));
+            }
+        }
+
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            window.location.href = window.location.pathname;
+        });
+
+        checkLogin();
+    </script>
+</body>
+</html>
